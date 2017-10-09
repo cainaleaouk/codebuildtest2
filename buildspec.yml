@@ -6,6 +6,10 @@ phases:
             - apt-get -y update
             - apt-get -y install zip
             - npm install -g serverless
+            - npm install serverless-webpack
+            - npm install ts-loader
+            - npm install typescript
+            - npm install webpack
     build:
          commands:
             - zip -r ../publish.zip ./*
