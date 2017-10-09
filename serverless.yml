@@ -1,0 +1,24 @@
+service:
+  name: aws-nodejs-typescript
+
+# Add the serverless-webpack plugin
+plugins:
+  - serverless-webpack
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  region: us-east-1
+  profile: GoodCatch
+  stage: dev
+  role: arn:aws:iam::733596300477:role/serverless_codebuild_test
+  memorySize: 128 # Overwrite the default memory size. Default is 1024
+  timeout: 100 #default is 6
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          method: get
+          path: hello

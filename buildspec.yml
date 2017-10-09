@@ -1,0 +1,20 @@
+version: 0.1
+
+phases:
+    install:
+         commands:
+            - apt-get -y update
+            - apt-get -y install zip
+            - npm install -g serverless
+    build:
+         commands:
+            - zip -r ../publish.zip ./*
+    post_build:
+         commands:
+            - serverless deploy --stage dev --region us-east-1 --verbose
+
+artifacts:
+    files:
+         - serverless.yml
+         - publish.zip
+    discard-paths: yes
