@@ -9,7 +9,6 @@ provider:
   name: aws
   runtime: nodejs6.10
   region: us-east-1
-  profile: GoodCatch
   stage: dev
   role: arn:aws:iam::733596300477:role/serverless_codebuild_test
   memorySize: 128 # Overwrite the default memory size. Default is 1024
